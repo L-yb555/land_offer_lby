@@ -1,0 +1,4 @@
+interface:
+  display_name: "Resume Tailor"
+  short_description: "Tailor resumes to JDs with automatic direct-or-interactive routing."
+  default_prompt: "Use $resume-role-tailor to create a JD-specific resume Markdown and compiled LaTeX PDF with unified naming. If the user does not specify a mode, use 自动模式: generate directly when 岗位名称、公司名、JD/关键要求 are complete and specific; otherwise ask the minimum focused question needed. Treat 选择一 as an explicit direct-processing override and 选择二 as an explicit interactive override. When editing template/main.tex, preserve the existing format and framework exactly; generate content only inside the existing sections and LaTeX slots unless the user explicitly asks for layout or structure changes."

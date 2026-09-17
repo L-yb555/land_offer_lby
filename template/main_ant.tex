@@ -1,0 +1,160 @@
+\input{settings}
+\setlength{\emergencystretch}{2em}
+\titleformat{\section}
+  {\small\bfseries\raggedright}
+  {}{0em}
+  {}
+  [{\color{WHU_Blue}\titlerule}]
+\titlespacing*{\section}{0cm}{0.70em}{0.45em}
+\titlespacing*{\subsection}{0cm}{0.50em}{0.30em}
+\setlist[itemize]{topsep=0.10em, itemsep=0.10em, parsep=0em, partopsep=0em, leftmargin=1.25em}
+\setlist[enumerate]{topsep=0.10em, itemsep=0.10em, parsep=0em, partopsep=0em, leftmargin=1.35em}
+\renewcommand{\arraystretch}{0.98}
+\renewcommand{\CJKglue}{\hskip 0.018em}
+
+% 个人信息
+%  cd C:\Users\31087\Documents\Obsidian_Vault\Resume\template
+%  xelatex main_ant.tex
+\newcommand{\school}{江南大学 · 控制科学与工程}
+
+\newcommand{\contact}{
+    \scriptsize
+    \textcolor{white}{
+        \faEnvelope \quad \href{mailto:yuejinai55@gmail.com}{yuejinai55@gmail.com}
+        \hspace{3em}
+        \faPhone \quad +86 15515602693
+        \hspace{3em}
+        \faGithub \quad \href{https://github.com/L-yb555}{github.com/L-yb555}
+    }
+}
+
+\newcommand{\resumeDecor}{
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=north, inner sep=0pt](header) at (current page.north){
+            \includegraphics[width=\paperwidth]{images/header.png}
+        };
+        \node[anchor=west](school_logo) at (header.west){
+            \hspace{0.5cm}
+            \includegraphics[width=0.15\textwidth]{images/whu_logo_1.png}
+        };
+        \node[anchor=east](school_name) at(header.east){
+            \textcolor{white}{\textbf{\school}}
+            \hspace{0.5cm}
+        };
+    \end{tikzpicture}
+
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[anchor=south, inner sep=0pt](footer) at (current page.south){
+            \includegraphics[width=\paperwidth]{images/footer.png}
+        };
+        \node[anchor=center] at(footer.center){\contact};
+    \end{tikzpicture}
+
+    \begin{tikzpicture}[remember picture, overlay]
+        \node[opacity=0.05] at(current page.center){
+            \includegraphics[width=0.68\paperwidth, keepaspectratio]{images/whu_logo_big.png}
+        };
+    \end{tikzpicture}
+}
+
+\newcommand{\sectionIcon}[2]{\makebox[\widthof{#1}][c]{\color{WHU_Blue}{#1}}\quad #2}
+
+%%%%%%%%%%%%%%%%%%%%
+% 简历正文
+%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\resumeDecor
+\vspace*{-3.15em}
+\scriptsize
+\linespread{1.11}\selectfont
+
+\begin{minipage}{0.80\textwidth}
+    \section[个人信息]{\sectionIcon{\faAddressCard}{个人信息}}
+    \begin{tabularx}{\linewidth}{p{\widthof{求职意向:}}Xp{\widthof{最高学历:}}X}
+        姓\ \ \ \ \ \ \ \ 名: & 梁邦一 &
+        性\ \ \ \ \ \ \ \ 别: & 男 \\
+        年\ \ \ \ \ \ \ \ 龄: & 24岁 &
+        籍\ \ \ \ \ \ \ \ 贯: & 河南 \\
+        英语等级: & CET-6 &
+        求职意向: & 具身智能算法工程师（2027届校招） \\
+        & &
+    \end{tabularx}
+\end{minipage}
+\hfill
+\begin{minipage}{0.12\textwidth}
+    \includegraphics[width=\linewidth]{images/avatar.png}
+\end{minipage}
+\vspace{-1.28em}
+
+% \section[个人总结]{\sectionIcon{\faBook}{个人总结}}
+% 控制科学与工程硕士在读，本科自动化背景，围绕机器人感知、人机交互、多模态传感、机械臂/末端灵巧手遥操作和 VLA 真机/仿真实践开展研究，具备从感知输入、模型输出到动作验证的完整链路理解。\\
+% 基于 PyTorch 参与 Transformer / 轻量级 Conformer / YOLO11s-seg 等模型实验，做过视觉、肌电、压力等多通道数据同步采集、清洗标注、训练配置管理和 bad case 分析，理解数据质量、模型结构和泛化稳定性之间的关系。\\
+% 参与 CARIZO 智驾感知数据挖掘实习，做过 Qwen3-VL / vLLM / 结构化打标 / 评估脚本和两阶段目标挖掘闭环，具备将 VLM 刷库、标签体系和自动化评测迁移到机器人多模态数据 pipeline 的基础。\\
+% 持续关注 Imitation Learning、RL、Diffusion Policy、OpenVLA 等具身智能方向，具备英文论文研读、技术路线梳理和跨角色协作推进能力，能够快速进入机器人实验和工程联调节奏。
+
+\section[教育背景]{\sectionIcon{\faGraduationCap}{教育背景}}
+\begin{itemize}
+    \item {\textbf{控制科学与工程硕士，江南大学}} \hfill {2024.09--2027.06}
+    \item {\textbf{自动化学士，郑州轻工业大学}} \hfill {2020.09--2024.06}
+\end{itemize}
+
+\section[荣誉与组织经历]{\sectionIcon{\faStar}{荣誉与组织经历}}
+\begin{itemize}
+    \item {\textbf{荣誉奖项}}：中国智能机器人大赛无人车组国家三等奖；校一等奖学金（2025.10）；优秀毕业生（2024.06）。
+    \item {\textbf{组织经历}}：本科班长（2020.10-2024.06）；硕士党支部书记（2024.10-2026.05），具备跨角色沟通、任务分解和协作推进经验。
+\end{itemize}
+
+\section[专业技能]{\sectionIcon{\faWrench}{专业技能}}
+\begin{itemize}
+    \item \textbf{算法与模型}：Python、PyTorch、Transformer、轻量级 Conformer、YOLO11s-seg、深度学习、目标检测、实例分割、分类任务、连续值回归、时序信号建模、多模态特征融合。
+    \item \textbf{机器人与系统联调}：ROS2（Python / C++）节点开发、Topic 通信、机械臂与末端灵巧手遥操作、机器人端联调、基础控制链路调试、Linux / Ubuntu 环境搭建、Git 版本管理、bash / shell 基础。
+    \item \textbf{数据工程与评估闭环}：机器人/视觉数据清洗与标注、多通道传感数据采集、训练/验证/测试集划分、vLLM 批量推理、JSON 标签解析、Accuracy / Precision / Recall / F1-score / 混淆矩阵评估、bad case 分析与版本对比。
+    \item \textbf{仿真与 VLA 方向}：MuJoCo、Gazebo、机器人任务评测、VLA 真机与仿真实践、OpenVLA2 代码复现，能够配合完成仿真任务配置和结果记录。
+\end{itemize}
+
+\section[实习经历]{\sectionIcon{\faBriefcase}{实习经历}}
+
+\vspace{0.04em}
+{\normalsize\textbf{CARIZO（大众在华自研智驾）}}  感知数据挖掘实习生 \hfill {2026.05--2026.08} \\
+\begin{enumerate}
+    \item 参与感知数据挖掘平台 VLM 刷库与结构化打标模型预研，构建Grounding DINO、GDINO + VLM、tagger 配置到模型 worker 的调用链，沉淀模型选型与工程排查文档，支持后续任务交接和问题定位。
+    \item 围绕 Qwen3-VL + LLaMA-Factory 全参数 SFT，参与训练样本、标签体系、Prompt 规则和 JSON 输出格式整理，支持模型按固定格式输出场景、光照、时间、天气、车位属性等驾驶场景标签。
+    \item 使用 vLLM 启动推理服务并接入 OpenAI-compatible API 测试，配合批量图片/视频帧推理验证，为感知数据筛选、标签入库和后续自动化评估提供可解析的推理结果。
+\end{enumerate}
+
+\vspace{0.04em}
+{\normalsize\textbf{优奇智能科技有限公司}}  人形机器人感知算法实习生 \hfill {2026.02--2026.05} \\
+\begin{enumerate}
+    \item 参与 R11 接待机器人感知模块的 YOLO11s-seg 模型训练复现，基于 Python / PyTorch / Ultralytics YOLO 在 Ubuntu 环境下完成实验环境搭建、数据配置、训练参数调整与基础效果验证，推动检测/分割训练链路跑通。
+    \item 参与多场景视觉数据清洗、筛选与标注整理，检查类别一致性和标注质量，完成训练集、验证集、测试集划分，交付规范化数据集和质量检查记录，支撑真实机器人场景下的数据迭代。
+    \item 面向真实机器人应用场景分析模型输出，归纳误检、漏检与分割边界不稳定等 bad case，形成问题清单与数据补充建议，帮助团队将模型效果问题转化为可执行的数据侧优化需求。
+\end{enumerate}
+
+\vspace{0.04em}
+{\normalsize\textbf{机器人与智能系统全国重点实验室}}  实习生 \hfill {2025.02--2026.02} \\
+\begin{enumerate}
+    \item 参与人机交互、机器人遥操作与多模态感知课题，围绕实验目标拆解数据采集、模型训练、系统验证和文档沉淀任务，支撑课题从方案讨论进入多轮实验执行。
+    \item 独立完成 Linux 服务器环境搭建、配置与维护，支撑 PyTorch 模型训练、数据管理、实验复现和多人协作，并同步整理运行记录、问题清单和操作文档。
+    \item 参与 ROS2（Python / C++）节点开发与联调，围绕 Topic 通信、采集脚本和基础控制流程调试数据流、设备连接和运行复现问题，提升实验链路可运行性。
+\end{enumerate}
+
+\section[科研与项目经历]{\sectionIcon{\faFlask}{科研与项目经历}}
+
+\vspace{0.04em}
+{\normalsize\textbf{肌电-力融合识别与机械臂/灵巧手遥操作验证}}\\
+2025.02--2026.02 
+\begin{enumerate}
+    \item 搭建 sEMG + force + vision + Unity/VR 人机交互实验链路，负责 Delsys Trigno 肌电与 Sensel 压力传感器同步采集，完成通道配置、会话标注、CSV 落盘与实时可视化，支撑按压、捏合等多类手势数据集构建。
+    \item 基于 PyTorch 参与肌电到力值映射模型设计与优化，围绕 Transformer / 轻量级 Conformer 开展力等级分类与连续力值回归实验，沉淀可复现训练流程和连续动作/力值建模经验。
+    \item 围绕机械臂及末端灵巧手遥操作场景，结合视觉采集与深度学习模型输出开展机器人交互验证，参与真实实验数据采集、样本整理、模型训练和效果检查，积累从采集、训练到真机联调的机器人课题经验。
+    \item 参与 ROS2 节点开发、Topic 数据订阅/发布、采集脚本和基础控制链路调试，将算法模型、视觉输入与机械臂/灵巧手遥操作流程衔接起来，为后续 Real2Sim2Real、强化/模仿学习策略验证和控制链路对接打下工程基础。
+\end{enumerate}
+
+\section[论文与研究成果]{\sectionIcon{\faBook}{论文与研究成果}}
+\begin{enumerate}
+    \item Liang B., Li N., Li G., et al. Sensing Technologies for Hand Gesture Recognition in Human-Robot Interaction: A Review[J]. IEEE Sensors Journal, 2025, 26(2): 1501-1519.（已录用，JCR一区）
+    \item sEMG Conformer: Synergizing Local-Global Spatiotemporal Features for Continuous Force Estimation. Biomedical Signal Processing and Control.（在投，JCR二区）
+\end{enumerate}
+
+
+\end{document}
