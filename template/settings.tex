@@ -86,4 +86,10 @@
 % 武大蓝（来自官方配色方案，参考https://www.whu.edu.cn/xxgk/wdbs.htm）
 \definecolor{WHU_Blue}{RGB}{0, 37, 84}
 
+% 重点标注色：黄色系，但避开纯黄（#FFFF00 在白底对比度仅约 1.07:1，无法阅读）
+% DarkGoldenrod 系 RGB(184,134,0)，对比度约 3.3:1，加粗后满足 WCAG AA 大号文本标准
+\definecolor{HLYellow}{RGB}{184, 134, 0}
+% 标注宏：突出模块内最重要的量化结果或核心结论，全篇克制使用
+\newcommand{\hl}[1]{\textcolor{HLYellow}{\textbf{#1}}}
+
 

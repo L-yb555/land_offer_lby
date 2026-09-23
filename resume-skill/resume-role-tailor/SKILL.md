@@ -102,14 +102,50 @@ Avoid repeating the same evidence in multiple sections. Each major fact should h
 - project/internship bullets prove the capability with concrete practice
 - `匹配优势` is optional and should be removed in one-page technical PDFs when it would repeat the skills and experience sections
 
+### `专业技能` is a flat tool list, not prose
+
+`专业技能` is the single home for the toolchain. List every tool, framework, method, and `方向储备` there, once. One line per capability area, formatted as `**能力方向**：工具、技术栈、方法`, with items separated by `、`. Nothing else re-lists them.
+
+Write no sentences in `专业技能`. Ban `具备…经验`、`服务过…场景`、`能够独立完成…`, explanatory clauses, and `\hl`. The section declares a stack; the experience bullets below prove it.
+
+Before:
+
+> **端侧部署与推理加速**：NVIDIA Jetson AGX Orin 端侧部署；PyTorch → ONNX → TensorRT 模型转换、量化与算子性能优化，具备真机检测/分割实时推理链路打通与端侧算子适配经验。
+
+After:
+
+> **端侧部署**：TensorRT、ONNX、NVIDIA Jetson AGX Orin、CUDA、模型量化与算子优化。
+
+Write each experience and project bullet as `做了什么 → 方法或思路 → 产出或结果`. Name the method in business language — `规则化挖掘算子`、`分层控制链路`、`伪标签蒸馏管道`、`两阶段挖掘闭环` — instead of naming the tools that implement it. The bullet's job is to prove the capability; `专业技能` already declared the stack.
+
+The test: delete the tool name and read the bullet. If it still says what was done and what came out, the tool name was decoration — leave it out.
+
+**Keep a tool name when it is the fact, not a skill recap.** Model and version identifiers (`Qwen3-VL-8B`、`YOLO11s-seg`), cluster scale (`4 机 8 卡 H20`), self-built artifacts (`含 vLLM 与 autodistill 的 Docker 镜像`), hardware and sensor models (`Delsys Trigno`、`Sensel`、`Linker Hand G20`), and published paper titles carry information that no other section repeats.
+
+Before:
+
+> 参与 R11 接待机器人感知模块的 YOLO11s-seg 模型训练复现，基于 Python / PyTorch / Ultralytics YOLO 在 Ubuntu 环境下完成实验环境搭建、数据配置、训练参数调整与基础效果验证，推动检测/分割训练链路跑通。
+
+After:
+
+> 复现 R11 接待机器人检测/分割训练链路：完成实验环境搭建、数据配置与训练参数调整，跑通训练并完成基础效果验证，沉淀可复用训练配置。
+
+`Python / PyTorch / Ultralytics YOLO / Ubuntu` all moved out to `专业技能`; `YOLO11s-seg` stays because it identifies which model.
+
+### Every list uses itemize, never numbering
+
+All lists in the resume use `\begin{itemize}` (bullet `•`): 实习经历、科研与项目经历、论文与研究成果、专业技能、荣誉. Do not emit `\begin{enumerate}` — the `1. 2. 3.` numbering reads as a checklist, costs horizontal room, and is not how this resume is typeset. When you touch a template that still uses `enumerate`, convert it to `itemize`.
+
 Do not change:
-- the existing LaTeX framework, section list, section order, heading names, icon choices, spacing commands, list settings, tabular/minipage structure, header/footer, photo/logo, font sizes, margins, or decorative assets in `template/main.tex`
+- the existing LaTeX framework, section list, section order, heading names, icon choices, spacing commands, tabular/minipage structure, header/footer, photo/logo, font sizes, margins, or decorative assets in `template/main.tex`. The one sanctioned exception is the list environment — all lists are `itemize` (see *Every list uses itemize, never numbering*)
 - school, degree, dates
 - company names, internship dates
 - papers, awards, contact information
 - any metrics or achievements unless they already exist in source files or the user provides them
 
-When updating `template/main.tex`, preserve the current framework exactly. Replace text inside existing fields, headers, `\item` bullets, and section bodies only. Do not add, remove, rename, or reorder sections; do not add or delete list environments; do not tune spacing such as `\vspace`, `\titlespacing`, `\setlist`, line breaks, or minipage widths unless the user explicitly asks for layout/format changes. If the target content does not fit the existing slots, ask the user before changing the structure.
+Keep the highlight convention: `\hl{...}` (bold DarkGoldenrod, defined in `template/settings.tex`) marks the flashpoint inside each internship and project entry — the quantified result or shipped outcome. Every entry gets at least one. Never put `\hl` on paragraph-opening category labels or institution names; keep those as plain `\textbf` or plain text. Do not use pure yellow `#FFFF00` — it is unreadable on white.
+
+When updating `template/main.tex`, preserve the current framework exactly. Replace text inside existing fields, headers, `\item` bullets, and section bodies only. Do not add, remove, rename, or reorder sections; do not tune spacing such as `\vspace`, `\titlespacing`, `\setlist`, line breaks, or minipage widths unless the user explicitly asks for layout/format changes. The list environment is the one exception: convert any `enumerate` to `itemize`. If the target content does not fit the existing slots, ask the user before changing the structure.
 
 5. Apply the rewrite rules in [`references/rewrite-rules.md`](rewrite-rules.md).
 
@@ -162,7 +198,7 @@ Prefer 3 to 5 lines for summary / personal advantages; expand to 6 lines when th
 Keep bullets concrete, specific, and action-oriented. Each bullet should carry at minimum: what was done, with which tools/methods, and what it produced or enabled. Avoid vague bullets like "参与项目开发" with no further detail.
 Front-load role-relevant keywords in the first half of the resume.
 For technical, algorithm, robotics, VLA, multimodal, or research roles, prefer a `专业技能` section over a separate `匹配优势` section in the one-page PDF when space is tight. Merge fit statements into skill bullets, and bold the strongest keywords or toolchains.
-Write professional-skill bullets as `JD能力方向 + 具体工具/任务 + 已有实践或可迁移场景`, not as flat keyword lists. First extract what the JD asks for, then write only related skills and practice. Include concrete details such as training/evaluation pipeline, data split, bad case analysis, ROS2 communication, Linux environment setup, paper tracking, experiment notes, VLA task evaluation, deployment/robot-task evaluation, RGB-D/force/tactile fusion, or point-cloud workflow only when supported by source material or explicitly provided by the user.
+Write `专业技能` as `**能力方向**：工具、技术栈、方法` — a flat, comma-separated list. No prose, no `具备…经验`, no outcome clauses; those belong in the experience and project bullets. This is the only section that names the toolchain — experience and project bullets below it describe work and outcomes without re-listing tools (see `专业技能` is a flat tool list, not prose). First extract what the JD asks for, then list only related tools and methods. Include entries such as training/evaluation pipeline, data split, bad case analysis, ROS2 communication, Linux environment setup, VLA task evaluation, deployment/robot-task evaluation, RGB-D/force/tactile fusion, or point-cloud workflow only when supported by source material or explicitly provided by the user.
 When the JD asks for skills not fully proven by source material, separate them as `方向储备`, `流程认知`, or `可迁移基础`; do not write `精通`, `掌握`, or `实际应用` unless the source files or user-provided JD context support it.
 Produce Markdown first. If PDF output is requested, use the Markdown as the content source and place that content into the existing `../../template/main.tex` LaTeX section slots before compiling. Markdown and PDF must use the same role-tailored facts and naming base, but the PDF must follow the current `main.tex` section framework and ordering.
 If the role is product-oriented, emphasize:
@@ -221,6 +257,7 @@ Examples:
 
 ## Quick Mapping
 
+- "帮我投国企 / 央企 / 研究所" -> start from `template/main_guoqi.tex`（政治面貌、校园组织经历前置）
 - "帮我投 AI 产品经理" -> start from `baseline_AI PM版.md`
 - "做一个更容易过筛的版本" -> start from `baseline_招聘筛选版.md`
 - "按这个 JD 重写简历" -> choose the closest baseline, then rewrite summary, selected bullets, and skills around the JD

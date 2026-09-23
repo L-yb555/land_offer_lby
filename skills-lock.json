@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "resume-optimizer": {
+      "source": "wyh0626/resume-optimizer",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "e3fcc9b400366979647b0dfd5c5b4948c6e157167ef88837a71d22d85d7d64ee"
+    }
+  }
+}

@@ -16,6 +16,20 @@ Use these files as the authoritative starting materials for resume generation in
 - `../../template/main.pdf`
   Build artifact generated from `main.tex`. Compile with `xelatex -interaction=nonstopmode main.tex` from `../../template`, then copy/rename to the role-specific filename when requested.
 
+### Role variants
+
+All variants share the same framework (no footer band; contact = 邮箱 + 电话 in the 个人信息 tabular; entry titles `\small`; blue tagline under each entry; `\hl` flashpoints; all lists `itemize` — never `enumerate`; `专业技能` as a flat tool list; unified three-paper 成果 section). Pick by target employer:
+
+- `main.tex` — 自动驾驶感知工程师（智驾主线）
+- `main_algo.tex` — 算法研发（视觉方向）
+- `main_pm.tex` — AI 产品经理 / 产品导向
+- `main_ant.tex` — 具身智能 / 机器人算法
+- `main_scconsult.tex` — 工业 AI / 咨询导向
+- `main_general.tex` — 通用平衡版
+- `main_guoqi.tex` — 国企 / 央企 / 院所导向：政治面貌与校园组织经历前置，含制造业一线实习，信息表保留年龄与籍贯
+
+Compile any variant twice (`xelatex` two passes) — the header/watermark tikz overlays use `remember picture` and misplace on a single pass.
+
 ## Images
 
 - `../../figure_normal.jpg`
