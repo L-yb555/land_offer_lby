@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# LaTeX 编译产物（保留 .tex / .pdf）
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk

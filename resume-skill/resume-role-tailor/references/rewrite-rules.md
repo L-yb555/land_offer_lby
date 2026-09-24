@@ -40,7 +40,7 @@ Increase match quality for a target role without inventing facts.
 
 `\hl{...}` (defined in `template/settings.tex` as bold DarkGoldenrod `RGB 184,134,0`) marks the **flashpoint inside an entry** — the quantified result or shipped outcome that makes that internship or project worth reading. Every internship and project entry gets at least one; a section with no flashpoint marked reads as filler.
 
-Good targets: `\hl{标签验收准确率达 90\%}`、`\hl{在 4 机 8 卡 H20 完成全参数 SFT}`、`\hl{基于 GRPO 的三元组策略优化方法}`、`\hl{历时 12 个月完成端到端项目闭环}`、`\hl{50+ 份《产品建议书》}`、`\hl{国家三等奖}`、`\hl{JCR 一区}`.
+Good targets: `\hl{标签验收准确率达 90\%}`、`\hl{在 H20 8GPU 集群完成全参数 SFT}`、`\hl{测试集准确率 0.8984 创历史新高}`、`\hl{历时 12 个月完成端到端项目闭环}`、`\hl{50+ 份《产品建议书》}`、`\hl{国家三等奖}`、`\hl{JCR 一区}`.
 
 Do **not** put `\hl` on paragraph-opening category labels (`\textbf{算法与模型}`-style skill headers) or on institution/affiliation names — those are structural or already stated in 教育背景, and highlighting them buries the real flashpoints. Keep `\textbf` for structural labels and section headings. `\hl` already applies bold, so do not nest one inside the other. Do not use pure yellow `#FFFF00`: at roughly 1.07:1 against white it cannot be read.
 

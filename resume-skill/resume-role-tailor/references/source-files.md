@@ -21,6 +21,8 @@ Use these files as the authoritative starting materials for resume generation in
 All variants share the same framework (no footer band; contact = 邮箱 + 电话 in the 个人信息 tabular; entry titles `\small`; blue tagline under each entry; `\hl` flashpoints; all lists `itemize` — never `enumerate`; `专业技能` as a flat tool list; unified three-paper 成果 section). Pick by target employer:
 
 - `main.tex` — 自动驾驶感知工程师（智驾主线）
+- `main_perception.tex` — 自动驾驶感知工程师（Caterpillar R0000390959 定向版：前置 Orin/TensorRT 加分项，LiDAR/BEV/跟踪列入方向储备）
+- `main_dataengine.tex` — 自动驾驶数据引擎工程师（Caterpillar R0000390959 定向版：前置自动标注工具链 / 数据质量体系 / 训练基础设施）
 - `main_algo.tex` — 算法研发（视觉方向）
 - `main_pm.tex` — AI 产品经理 / 产品导向
 - `main_ant.tex` — 具身智能 / 机器人算法

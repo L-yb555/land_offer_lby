@@ -31,9 +31,9 @@
 
 英语 CET-6
 
-**编程与工程工具**：Python、C++、Linux / Ubuntu、Git 版本管理、bash / shell 基础、Pandas、实验环境搭建、训练配置管理；Docker 镜像构建（llamafactory baked + vLLM + autodistill）、K8s GPU 作业提交、4 机 8 卡 H20 集群训练。
+**编程与工程工具**：Python、C++、Linux / Ubuntu、Git 版本管理、bash / shell 基础、Pandas / NumPy、protobuf、实验环境搭建、训练配置管理；Docker 镜像构建（llamafactory baked + vLLM + autodistill）、K8s GPU 作业提交、4 机 8 卡 H20 集群训练。
 
-**深度学习与训练实验**：PyTorch、Transformer、Ultralytics YOLO、分类任务、连续值回归、时序建模、异常检测、模型训练复现、参数调整、结果检查、bad case 归因；`LLaMA-Factory` 微调（LoRA / 全参数 SFT）、GRPO 策略优化、多基座对比（Qwen3-VL-8B / Qwen3.5-9B / Qwen2-VL）、训练与评测流水线搭建。
+**深度学习与训练实验**：PyTorch、Transformer、Ultralytics YOLO、分类任务、连续值回归、时序建模、异常检测、模型训练复现、参数调整、结果检查、bad case 归因；`LLaMA-Factory` 微调（LoRA / 全参数 SFT）、手写 CoT 混合双 prompt 训练、多基座对比（Qwen3-VL-8B / Qwen3.5-9B / Qwen2-VL）、训练与评测流水线搭建。
 
 **端侧部署与推理加速**：NVIDIA Jetson AGX Orin 端侧部署；PyTorch → ONNX → TensorRT 模型转换、量化与算子性能优化，推理延迟降低 20%；在真机跑通检测/分割实时推理链路，形成"训练—部署—实机验证"端到端工程闭环。
 
@@ -56,7 +56,7 @@
 # 个人总结
 
 控制科学与工程硕士在读，本科自动化背景，具备 AI 算法、机器人系统、信号处理、人机交互与工程落地的复合基础。本科参加中国机器人大赛暨 RoboCup 机器人世界杯中国赛（无人车组）并获国家三等奖，具备智能车开发与机器人竞赛实践经验。
-硕士期间围绕深度学习模型训练、视觉数据采集、机械臂及末端灵巧手遥操作开展课题实践，具备 ROS2（Python / C++）开发、Linux 环境搭建、多模态数据链路搭建、MuJoCo 仿真学习与策略验证方案设计、VLA 真机与仿真实践和模型实验经验；同时具备自动驾驶感知数据闭环的工程实践，能够独立完成规则 Tagger 设计、开放词汇检测与 VLM 组合挖掘、大规模数据清洗与标注验收，以及基于 `LLaMA-Factory` 的 VLM 微调（LoRA / 全参 SFT）、CoT 数据工程与 GRPO 策略优化；同时具备 `Jetson AGX Orin` 端侧部署与 `TensorRT` 推理加速（PyTorch → ONNX → TensorRT 转换、量化与算子优化）的工程落地经验，兼具研究能力与工程落地意识。
+硕士期间围绕深度学习模型训练、视觉数据采集、机械臂及末端灵巧手遥操作开展课题实践，具备 ROS2（Python / C++）开发、Linux 环境搭建、多模态数据链路搭建、MuJoCo 仿真学习与策略验证方案设计、VLA 真机与仿真实践和模型实验经验；同时具备自动驾驶感知数据闭环的工程实践，能够独立完成规则 Tagger 设计、开放词汇检测与 VLM 组合挖掘、大规模数据清洗与标注验收，以及基于 `LLaMA-Factory` 的 VLM 微调（LoRA / 全参 SFT）、CoT 数据工程；同时具备 `Jetson AGX Orin` 端侧部署与 `TensorRT` 推理加速（PyTorch → ONNX → TensorRT 转换、量化与算子优化）的工程落地经验，兼具研究能力与工程落地意识。
 本人对 AI 应用有较深理解，了解当前大模型在生成、推理、格式控制与事实校验中的能力边界，能够针对科研写作、求职表达和内容输出等真实需求，创建合适的 Agent / 工作流，并结合 Markdown 与 LaTeX 完成结构化文档生成、版本迭代和质量审校。具备较强的适应力和学习力，能够快速理解新技术、新产品形态与新业务场景，并推动方案落地；性格开朗，曾长期担任班长，能够快速融入团队，在需求沟通、协同合作、跨角色推进和事务落地方面具备较强能力。
 
 # 教育背景
@@ -123,15 +123,14 @@ Figma：https://www.figma.com/design/9OPgkbGB9tEonSwluSm2lZ
 
 背景：自动驾驶领域中，算法决定模型下限，数据决定模型上限；感知数据组通过数据闭环将海量无序原始数据转化为高质量训练数据，持续提升感知模型性能。
 
-1. 数据挖掘 Tagger 设计：负责红绿灯场景下自车转向判断 Tagger 设计，融合车载数据与回灌数据设计多维度规则化挖掘算子，在 3W 条路口数据中精准筛选 3K 条路口转向 CLIP，标签验收准确率达 90%，挖掘召回提升 10%。
-2. 数据合成链路设计：设计自动驾驶长尾场景数据合成 pipeline，针对废弃地面箭头、直行引导线等实车采集难覆盖的 Corner Case，融合规则染与生成模型方案，合成 5k 张高质量训练样本，填补实车采集空白，支撑挖掘模型冷启动迭代。
-3. 视觉感知数据挖掘：针对驾驶场景视觉目标，采用开放词汇检测（Grounding DINO 等）定位交通标识、红绿灯、车辆、行人、锥桶等目标，对检测框裁剪图调用专用 VLM（GDINO + VLM）识别细粒度属性；同时利用视觉 embedding 检索构建相似样本召回链路，用于长尾样本挖掘、Corner Case 筛选与标签校验，服务自动化标注与标签库建设。
-4. 多模态自动标注大模型后训练：负责泊车障碍物识别模型优化，从海量车载数据中筛选 1.8 万张挡轮杆候选图像，完成数据清洗、标注校验及 Prompt 迭代；基于 Qwen3-VL-8B 基座使用 LLaMA-Factory 在 4 机 8 卡 H20 集群完成全参数 SFT；针对类别误判、高度不足等验收问题，设计基于 GRPO 的三元组策略优化方法，构建 1k 组"查询图—正样本—负样本"后训练数据，完成模型二次精标的业务交付要求。
-5. 闸机杆/限高杆五分类 VLM SFT：围绕闸机杆五分类任务完成 13 轮系统性训练迭代（v1→v10），覆盖 LoRA→全参微调、小图→大图、单基座→Qwen3.5-9B、纯 label→CoT 混合的完整消进路线；v10 测试集准确率 **0.8984**，验证双 prompt 方案成立（CoT prompt 较短 prompt 高约 **+3pp**），沉淀可复用的 SFT 实验结论。
-6. CoT 数据工程与标注平台：设计“图片筛选→校准 CoT→全量 draft→QA 审核→final”的 300 条手写 grounded CoT 生产流程，并在 GT 生产平台落地 CoT 标注工具链（SFT 数据预填、label + thinking 推理链标注工作台、人工确认后批量回写 sft.json），打通“人工标注→SFT 训练数据”闭环。
-7. 检测模型蒸馏：从零搭建 GroundingDINO→YOLOv8 伪标签蒸馏管道，基于 autodistill 框架完成教师模型推理封装、10 类 ontology 与标签漂移一致性校验、逐类 NMS/box 阈值配置，并自建 Docker 镜像（含 vLLM、autodistill 与 CUDA kernel 编译），已应用于红绿灯检测等实际任务。
-8. 数据挖掘 Tagger 矩阵：在 mining_engine 框架下开发多个 by_search_tagger（文搜 + VLM 组合打标器），覆盖闸机杆、垃圾袋、卷帘门、后备箱开启、限高杆等长尾场景，其中垃圾袋检测经 Kimi-VL / Qwen3-VL-32B / Qwen3-VL-8B / Gemma4-26B few-shot 对比验证后落成生产 tagger（Qwen3-VL-8B 三分类）。
-9. 系统链路梳理：梳理 `mining-system` 中从 `config.yaml`、tagger 配置、`base_tagger.py` 推理接口到 `processer.py` 模型 worker 的调用链路，明确 tagger 与模型类型、模型版本、实际 checkpoint 的映射关系，支撑复杂刷库任务的问题排查和团队交接。
+1. 数据挖掘 Tagger 设计：面向感知模型训练、评测与地图团队的迭代数据需求，负责红绿灯场景下自车转向判断 Tagger 设计，融合车载数据与回灌数据（多源 PB 信号）设计多维度规则化挖掘算子，在 3W 条路口数据中精准筛选 3K 条路口转向 CLIP，标签验收准确率达 90%，挖掘召回提升 10%。
+2. 视觉感知数据挖掘：针对驾驶场景视觉目标，采用开放词汇检测（Grounding DINO 等）定位交通标识、红绿灯、车辆、行人、锥桶等目标，对检测框裁剪图调用专用 VLM（GDINO + VLM）识别细粒度属性；同时利用视觉 embedding 检索构建相似样本召回链路，用于长尾样本挖掘、Corner Case 筛选与标签校验，服务自动化标注与标签库建设。与 Qwen3-VL 属性判别、以图搜图、多源 PB 信号挖掘共同构成「场景挖掘 → 复核 → 标签交付」的可复用流程，面向复杂场景、长尾场景与 Corner Case 样本获取难、覆盖不足的问题，批量交付高质量场景样本与感知标签（准确率超 80%）。
+3. 以图搜图 2.0 感知数据挖掘：针对传统感知数据挖掘依赖模型实时推理、成本高且启动慢的问题，主导设计并落地基于视觉相似性的「以图搜图 2.0」方案，基于相似性、正负例精排进行场景召回与标签生产，不依赖检测、分割等额外模型，显著降低数据建设对模型推理资源的依赖；累计交付 50+ 感知标签（覆盖蹲着的行人、地面积水中的车辆倒影等高价值 Corner Case），单标签样本规模通常 >1.5 万，整体标签准确率超过 80%，人效稳定在 2 个标签 / 人 / 天。
+4. 闸机杆/限高杆五分类 VLM SFT：围绕闸机杆五分类任务完成 13 轮系统性训练迭代（v1→v10），覆盖 LoRA→全参微调、小图→大图、单基座→Qwen3.5-9B、纯 label→CoT 混合的完整消进路线；v10 测试集准确率 **0.8984**，验证双 prompt 方案成立（CoT prompt 较短 prompt 高约 **+3pp**），沉淀可复用的 SFT 实验结论。
+5. CoT 数据工程与标注平台：设计“图片筛选→校准 CoT→全量 draft→QA 审核→final”的 300 条手写 grounded CoT 生产流程，并在 GT 生产平台落地 CoT 标注工具链（SFT 数据预填、label + thinking 推理链标注工作台、人工确认后批量回写 sft.json），打通“人工标注→SFT 训练数据”闭环。
+6. 检测模型蒸馏：从零搭建 GroundingDINO→YOLOv8 伪标签蒸馏管道，基于 autodistill 框架完成教师模型推理封装、10 类 ontology 与标签漂移一致性校验、逐类 NMS/box 阈值配置，并自建 Docker 镜像（含 vLLM、autodistill 与 CUDA kernel 编译），已应用于红绿灯检测等实际任务。
+7. 数据挖掘 Tagger 矩阵：在 mining_engine 框架下开发多个 by_search_tagger（文搜 + VLM 组合打标器），覆盖闸机杆、垃圾袋、卷帘门、后备箱开启、限高杆等长尾场景，其中垃圾袋检测经 Kimi-VL / Qwen3-VL-32B / Qwen3-VL-8B / Gemma4-26B few-shot 对比验证后落成生产 tagger（Qwen3-VL-8B 三分类）。
+8. 系统链路梳理：梳理 `mining-system` 中从 `config.yaml`、tagger 配置、`base_tagger.py` 推理接口到 `processer.py` 模型 worker 的调用链路，明确 tagger 与模型类型、模型版本、实际 checkpoint 的映射关系，支撑复杂刷库任务的问题排查和团队交接。
 
 > 详情：`details/实习-CARIZON.md`（13 轮实验对照表、技术栈、时间线、关键产出路径）
 

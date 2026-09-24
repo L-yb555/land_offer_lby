@@ -86,7 +86,7 @@
 \section[专业技能]{\sectionIcon{\faWrench}{专业技能}}
 \begin{itemize}
     \item \textbf{工业 AI 算法}：PyTorch、OpenCV、Pandas、Ultralytics YOLO、CNN、Transformer、Conformer、Grounding DINO、Qwen3-VL、分类 / 检测 / 分割 / 连续值回归 / 时序建模 / 异常检测。
-    \item \textbf{大模型与数据}：Prompt Engineering、LoRA / SFT、GRPO、多源数据清洗、降噪、特征提取、标签构建、Corner Case 合成。
+    \item \textbf{大模型与数据}：Prompt Engineering、LoRA / SFT、多源数据清洗、降噪、特征提取、标签构建。
     \item \textbf{部署与工程}：TensorRT、ONNX、NVIDIA Jetson AGX Orin、Docker、Kubernetes、Linux / Ubuntu、Git、bash、4 机 8 卡 H20 分布式训练。
     \item \textbf{工业场景与协作}：PLC 编程、控制逻辑设计、设备规格解读、Modbus / OPC UA、SCADA / MES、需求转技术方案。
 \end{itemize}
@@ -97,8 +97,8 @@
 {\scriptsize\color{WHU_Blue} AI 场景技术路径设计 / 多源异构数据处理 / 深度学习+机器学习+时序算法组合开发}
 \begin{itemize}
     \item \textbf{AI 场景技术路径与方案输出}：面向感知数据业务需求（长尾场景、Corner Case、细粒度识别），设计"\hl{规则 Tagger（机器学习）+ 开放词汇检测（Grounding DINO）+ VLM 后训练（大模型）}"分层技术路径，输出可迭代算法解决方案 — 可迁移到\textbf{制造业缺陷识别、工艺优化、仓储策略}等场景。
-    \item \textbf{多源异构数据处理与算法开发}：处理车载多路结构化数据 + 回灌数据 + 图像数据，完成数据清洗、时间戳对齐、Prompt 迭代、Corner Case 数据合成、标签构建；在 3W 条路口数据中筛选 3K 条转向 CLIP（\hl{标签验收准确率达 90\%、挖掘召回提升 10\%}）；设计"规则渲染 + 生成模型"合成 pipeline 产出 5K 张 Corner Case 样本，覆盖分类、检测、细粒度识别多任务算法开发。
-    \item \textbf{大模型后训练与业务交付}（可类比制造业缺陷识别）：负责泊车障碍物 VLM 优化，筛选 1.8 万张挡轮杆图像完成清洗、标注校验与 Prompt 迭代；基于 \textbf{Qwen3-VL-8B + LLaMA-Factory} 在 \hl{4 机 8 卡 H20 集群完成全参数 SFT}；针对验收问题设计\hl{基于 GRPO 的三元组策略优化方法}，完成模型二次精标业务交付。
+    \item \textbf{多源异构数据处理与算法开发}：处理车载多路结构化数据 + 回灌数据 + 图像数据，完成数据清洗、时间戳对齐、Prompt 迭代、标签构建；在 3W 条路口数据中筛选 3K 条转向 CLIP（\hl{标签验收准确率达 90\%、挖掘召回提升 10\%}），覆盖分类、检测、细粒度识别多任务算法开发。
+    \item \textbf{大模型后训练与业务交付}（可类比制造业缺陷识别）：负责感知细粒度识别 VLM 后训练优化，围绕闸机杆五分类完成清洗、标注校验与 Prompt 迭代；基于 \textbf{Qwen3-VL-8B + LLaMA-Factory} 在 \hl{H20 8GPU 集群}完成 13 轮实验迭代与全参数 SFT，\hl{测试集准确率 0.8984 创历史新高}，完成模型上线业务交付。
 \end{itemize}
 
 \vspace{0.30em}
@@ -126,11 +126,10 @@
 \end{itemize}
 
 \section[论文与研究成果]{\sectionIcon{\faBook}{论文与研究成果}}
-三篇工作构成\hl{「综述定路线 — 算法破难点 — 系统做闭环」}的完整研究链条：
 \begin{itemize}
-    \item \hl{已中（JCR 一区，中科院二区）}：Liang B., Li N., Li G., et al. Sensing Technologies for Hand Gesture Recognition in Human-Robot Interaction: A Review[J]. IEEE Sensors Journal, 2025, 26(2): 1501-1519. \textbf{综述}：梳理数据手套、视觉与肌电等手势感知路线，对比精度、侵入性与成本取舍，为感知方案选型提供依据。
-    \item \hl{在修（JCR 一区，中科院二区 Top）}：sEMG Conformer: Synergizing Local-Global Spatiotemporal Features for Continuous Force Estimation. Biomedical Signal Processing and Control. \textbf{算法核心}：卷积局部感受野 + 自注意力全局建模，解码肌电—指尖力映射，单模型支持力等级分类与连续力值回归。
-    \item \hl{在投（JCR 一区，中科院二区）}：Dexterous Hand Grasping Control Based on Multimodal Sensory Fusion and Simulation Reinforcement Learning. \textbf{系统闭环}：MuJoCo 仿真强化生成抓取姿态，融合视觉、肌电与触觉构建分层控制链路，G20 上完成闭环部署验证。
+    \item \hl{已录用 · 第一作者}（JCR 一区，中科院二区）：Liang B., Li N., Li G., et al. Sensing Technologies for Hand Gesture Recognition in Human-Robot Interaction: A Review[J]. IEEE Sensors Journal, 2025, 26(2): 1501-1519. \textbf{综述}：梳理数据手套、视觉与肌电等手势感知路线，对比精度、侵入性与成本取舍，为感知方案选型提供依据。
+    \item \hl{In Revision（在修）}（JCR 一区，中科院二区 Top）：sEMG Conformer: Synergizing Local-Global Spatiotemporal Features for Continuous Force Estimation. Biomedical Signal Processing and Control. \textbf{算法核心}：卷积局部感受野 + 自注意力全局建模，解码肌电—指尖力映射，单模型支持力等级分类与连续力值回归。
+    \item \hl{Under Review（在投）}（JCR 一区，中科院二区）：Dexterous Hand Grasping Control Based on Multimodal Sensory Fusion and Simulation Reinforcement Learning. \textbf{系统闭环}：MuJoCo 仿真强化生成抓取姿态，融合视觉、肌电与触觉构建分层控制链路，G20 上完成闭环部署验证。
 \end{itemize}
 
 \end{document}

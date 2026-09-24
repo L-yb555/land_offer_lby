@@ -1,6 +1,6 @@
 ---
 name: resume-role-tailor
-description: Tailor resumes for a specific role, industry, company, or JD using the Resume workspace. Use when the user wants JD-based resume Markdown/PDF output, role-specific rewriting, unified file naming, or automatic routing between direct generation and interactive refinement without inventing facts.
+description: Tailor resumes for a specific role, industry, company, or JD using the Resume workspace. Use when the user wants JD-based resume Markdown/PDF output, role-specific rewriting, unified file naming, or automatic routing between direct generation and interactive refinement without inventing facts. Also use whenever the user asks to review, critique, or rewrite a resume for 大厂算法岗 / 视觉算法 / 多模态 / VLM / 自动驾驶数据算法 / 机器人感知 positions (phrases like "评审这份简历", "按大厂标准改简历", "简历太满了"), applying references/algo-review-standards.md.
 ---
 
 # Resume Role Tailor
@@ -149,6 +149,8 @@ When updating `template/main.tex`, preserve the current framework exactly. Repla
 
 5. Apply the rewrite rules in [`references/rewrite-rules.md`](rewrite-rules.md).
 
+**Algorithm-role review standard.** When the target is a 大厂/一线公司算法岗（视觉、多模态、VLM、自动驾驶数据算法、机器人感知），or the user asks to 评审/诊断/压缩 a resume rather than tailor it to a JD, first read and apply [`references/algo-review-standards.md`](algo-review-standards.md). Where it conflicts with the general density preference below ("prefer thorough, detailed output"), the algorithm standard wins: for one-page algorithm resumes, over-stuffing is the primary failure mode. Its key moves: single memorable persona, 场景→方法→结果 bullets (max 3 per project), every number highlighted, conservative phrasing for anything that invites interview deep-dives (GRPO/后训练/reward 设计), formal publication status + author order, and 20–30% text reduction.
+
 Keep the resume factual, concise, and targeted. Prefer stronger ordering and phrasing over adding unsupported claims.
 
 When a JD exposes reusable technical recruiting language, update `../../baseline.md` conservatively so future role-specific resumes start from a stronger factual base. Only update baseline facts or broadly reusable phrasing that are supported by existing source material or explicit user-provided facts. Do not turn `baseline.md` into a single-company resume.
@@ -269,6 +271,7 @@ Examples:
 - Source file map: [`references/source-files.md`](source-files.md)
 - Rewrite rules: [`references/rewrite-rules.md`](rewrite-rules.md)
 - Input template: [`references/input-template.md`](input-template.md)
+- 大厂算法岗评审与重写标准: [`references/algo-review-standards.md`](algo-review-standards.md)
 
 
 

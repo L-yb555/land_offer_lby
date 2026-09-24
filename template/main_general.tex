@@ -101,8 +101,8 @@
 {\scriptsize\color{WHU_Blue} 感知数据闭环 / VLM 后训练 / 长尾场景挖掘}
 \begin{itemize}
     \item 设计红绿灯自车转向挖掘 Tagger，融合车载多路传感器与回灌数据设计规则化挖掘算子，在 3W 条路口数据中筛选 3K 条转向 CLIP，\hl{标签验收准确率达 90\%、挖掘召回提升 10\%}；梳理 Grounding DINO、GDINO + VLM、tagger 配置到模型 worker 的调用链，沉淀模型选型与工程排查文档。
-    \item 负责泊车障碍物识别 VLM 优化，筛选 1.8 万张挡轮杆图像完成数据清洗、标注校验与 Prompt 迭代，基于 Qwen3-VL-8B + LLaMA-Factory \hl{在 4 机 8 卡 H20 完成全参数 SFT}；针对类别误判等验收问题设计基于 GRPO 的三元组策略优化，完成模型二次精标业务交付。
-    \item 针对实车难覆盖的废弃地面箭头、引导线等 Corner Case，设计“规则渲染 + 生成模型”合成 pipeline，\hl{生成 5K 张高质量训练样本}，填补实车采集空白，支撑挖掘模型冷启动迭代。
+    \item 负责感知细粒度识别 VLM 后训练优化，筛选清洗闸机杆五分类图像并完成数据清洗、标注校验与 Prompt 迭代，基于 Qwen3-VL-8B + LLaMA-Factory 完成 13 轮 SFT 实验迭代与 H20 8GPU 集群全参数 SFT，\hl{测试集准确率 0.8984 创历史新高}，沉淀可复用 SFT 实验结论。
+    \item 主导设计并落地“以图搜图 2.0”（相似性 + 正负例精排做场景召回与标签生产，不依赖检测/分割等额外模型），累计交付 \hl{50+ 感知标签、整体标签准确率超 80\%}。
 \end{itemize}
 
 \vspace{0.30em}
@@ -124,11 +124,10 @@
 \end{itemize}
 
 \section[论文与研究成果]{\sectionIcon{\faBook}{论文与研究成果}}
-三篇工作构成\hl{「综述定路线 — 算法破难点 — 系统做闭环」}的完整研究链条：
 \begin{itemize}
-    \item \hl{已中（JCR 一区 / 中科院二区）} Liang B., Li N., Li G., et al. \textit{Sensing Technologies for Hand Gesture Recognition in Human-Robot Interaction: A Review}. IEEE Sensors Journal, 2025, 26(2): 1501-1519. \textbf{综述}：梳理数据手套、视觉与肌电等手势感知路线，对比精度、侵入性与成本取舍。
-    \item \hl{在修（JCR 一区 / 中科院二区 Top）} \textit{sEMG Conformer: Synergizing Local-Global Spatiotemporal Features for Continuous Force Estimation}. Biomedical Signal Processing and Control. \textbf{算法核心}：卷积局部感受野 + 自注意力全局建模，解码肌电—指尖力映射，单模型支持力等级分类与连续力值回归。
-    \item \hl{在投（JCR 一区 / 中科院二区）} \textit{Dexterous Hand Grasping Control Based on Multimodal Sensory Fusion and Simulation Reinforcement Learning}. \textbf{系统闭环}：MuJoCo 仿真强化生成抓取姿态，融合视觉、肌电与触觉构建分层控制链路，G20 上完成闭环部署验证。
+    \item \hl{已录用 · 第一作者}（JCR 一区 / 中科院二区） Liang B., Li N., Li G., et al. \textit{Sensing Technologies for Hand Gesture Recognition in Human-Robot Interaction: A Review}. IEEE Sensors Journal, 2025, 26(2): 1501-1519. \textbf{综述}：梳理数据手套、视觉与肌电等手势感知路线，对比精度、侵入性与成本取舍。
+    \item \hl{In Revision（在修）}（JCR 一区 / 中科院二区 Top） \textit{sEMG Conformer: Synergizing Local-Global Spatiotemporal Features for Continuous Force Estimation}. Biomedical Signal Processing and Control. \textbf{算法核心}：卷积局部感受野 + 自注意力全局建模，解码肌电—指尖力映射，单模型支持力等级分类与连续力值回归。
+    \item \hl{Under Review（在投）}（JCR 一区 / 中科院二区） \textit{Dexterous Hand Grasping Control Based on Multimodal Sensory Fusion and Simulation Reinforcement Learning}. \textbf{系统闭环}：MuJoCo 仿真强化生成抓取姿态，融合视觉、肌电与触觉构建分层控制链路，G20 上完成闭环部署验证。
 \end{itemize}
 
 

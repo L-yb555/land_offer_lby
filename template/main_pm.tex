@@ -98,7 +98,7 @@
 {\scriptsize\color{WHU_Blue} 跨部门协同 / 数据交付验收 / 调用链梳理与团队交接支撑}
 \begin{itemize}
     \item 对接标注、算法、验收三方需求，设计红绿灯场景转向 Tagger 挖掘规则，在 3W 条路口数据中筛选 3K 条转向 CLIP，\hl{标签验收准确率达 90\%、挖掘召回提升 10\%}，满足业务方交付标准。
-    \item 主导 1.8 万张挡轮杆候选图像的清洗、标注校验与 Prompt 迭代全链路，推动多轮验收反馈闭环，\hl{完成模型二次精标业务交付}；另设计"规则渲染 + 生成模型"合成 pipeline，产出 5K 张 Corner Case 训练样本填补实车采集空白。
+    \item 主导闸机杆五分类 VLM SFT 的数据清洗、标注校验与 Prompt 迭代全链路，推动多轮验收反馈闭环，\hl{测试集准确率 0.8984 创历史新高、v10 上线}。
     \item 系统性梳理 mining-system 从 config.yaml、tagger 配置、推理接口到模型 worker 的调用链，建立模型版本与 checkpoint 映射关系，\hl{支撑复杂刷库任务的问题排查与团队交接}，提升跨团队协作透明度。
 \end{itemize}
 
@@ -129,11 +129,10 @@
 \end{itemize}
 
 \section[论文与研究成果]{\sectionIcon{\faBook}{论文与研究成果}}
-三篇工作构成\hl{「综述定路线 — 算法破难点 — 系统做闭环」}的完整研究链条：
 \begin{itemize}
-    \item \hl{已中（JCR 一区，中科院二区）}：Liang B., Li N., Li G., et al. Sensing Technologies for Hand Gesture Recognition in Human-Robot Interaction: A Review[J]. IEEE Sensors Journal, 2025, 26(2): 1501-1519. \textbf{综述}：梳理数据手套、视觉与肌电等手势感知路线，对比精度、侵入性与成本取舍，为方案选型提供依据。
-    \item \hl{在修（JCR 一区，中科院二区 Top）}：sEMG Conformer: Synergizing Local-Global Spatiotemporal Features for Continuous Force Estimation. Biomedical Signal Processing and Control. \textbf{算法核心}：卷积局部感受野 + 自注意力全局建模，解码肌电—指尖力映射，支持力等级分类与连续力值回归。
-    \item \hl{在投（JCR 一区，中科院二区）}：Dexterous Hand Grasping Control Based on Multimodal Sensory Fusion and Simulation Reinforcement Learning. \textbf{系统闭环}：MuJoCo 仿真强化生成抓取姿态，融合视觉、肌电与触觉构建分层控制链路，G20 上完成闭环部署验证。
+    \item \hl{已录用 · 第一作者}（JCR 一区，中科院二区）：Liang B., Li N., Li G., et al. Sensing Technologies for Hand Gesture Recognition in Human-Robot Interaction: A Review[J]. IEEE Sensors Journal, 2025, 26(2): 1501-1519. \textbf{综述}：梳理数据手套、视觉与肌电等手势感知路线，对比精度、侵入性与成本取舍，为方案选型提供依据。
+    \item \hl{In Revision（在修）}（JCR 一区，中科院二区 Top）：sEMG Conformer: Synergizing Local-Global Spatiotemporal Features for Continuous Force Estimation. Biomedical Signal Processing and Control. \textbf{算法核心}：卷积局部感受野 + 自注意力全局建模，解码肌电—指尖力映射，支持力等级分类与连续力值回归。
+    \item \hl{Under Review（在投）}（JCR 一区，中科院二区）：Dexterous Hand Grasping Control Based on Multimodal Sensory Fusion and Simulation Reinforcement Learning. \textbf{系统闭环}：MuJoCo 仿真强化生成抓取姿态，融合视觉、肌电与触觉构建分层控制链路，G20 上完成闭环部署验证。
 \end{itemize}
 
 \end{document}
